@@ -171,7 +171,7 @@ in
     virt-manager
     nixpkgs-fmt
     pre-commit
-
+    openttd-jgrpp
   ];
 
 
