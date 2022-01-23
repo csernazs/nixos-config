@@ -162,4 +162,5 @@ packages = [
     "cargo",
     "restic",
     "kdenlive",
+    "citrix_workspace",
 ]
