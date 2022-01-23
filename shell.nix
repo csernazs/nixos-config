@@ -7,6 +7,7 @@ pkgs.mkShell {
   buildInputs = [
     unstable.cargo
     unstable.rustc
+    pkgs.python3Packages.toml
     pkgs.bashInteractive
   ];
 }
