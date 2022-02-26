@@ -145,12 +145,12 @@ packages = [
     "python3Packages.pip",
     "python3Packages.pyopengl-accelerate",
     "python3Packages.bitarray",
+    "kitty",
 ]
 
 [unstable]
 packages = [
     "vscode",
-    "kitty",
     "inkscape",
     "geeqie",
     "tesseract4",
