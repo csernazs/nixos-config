@@ -146,6 +146,7 @@ packages = [
     "python3Packages.pyopengl-accelerate",
     "python3Packages.bitarray",
     "kitty",
+    "jless",
 ]
 
 [unstable]
