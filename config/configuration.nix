@@ -168,6 +168,7 @@
       montserrat
       hack-font
       work-sans
+      victor-mono
       vistafonts
     ];
   };
