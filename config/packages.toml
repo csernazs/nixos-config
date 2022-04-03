@@ -144,6 +144,7 @@ packages = [
     "python3Packages.pyopengl-accelerate",
     "python3Packages.bitarray",
     "jless",
+    "sshfs",
 ]
 
 [unstable]
@@ -164,4 +165,6 @@ packages = [
     "kitty",
     "pypy",
     "pypy3",
+    "thefuck",
+    "john",
 ]
