@@ -82,8 +82,6 @@ packages = [
     "squashfsTools",
     "gptfdisk",
     "gitAndTools.gitFull",
-    "pypy",
-    "pypy3",
     "fping",
     "tcpdump",
     "sysstat",
@@ -164,4 +162,6 @@ packages = [
     "kdenlive",
     "citrix_workspace",
     "kitty",
+    "pypy",
+    "pypy3",
 ]
