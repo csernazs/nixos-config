@@ -159,7 +159,6 @@
       fira-code-symbols
       noto-fonts-emoji
       liberation_ttf
-      mplus-outline-fonts
       libertine
       zilla-slab
       roboto
