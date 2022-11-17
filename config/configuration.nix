@@ -39,7 +39,7 @@
 
   nixpkgs.config.pulseaudio = true;
 
-  time.timeZone = "Europe/Budapest";
+  # time.timeZone = "Europe/Budapest";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -51,6 +51,8 @@
   services.gvfs.enable = true;
   services.fstrim.enable = true;
   services.lorri.enable = true;
+  services.tzupdate.enable = true;
+
   services.openssh = {
     enable = true;
     passwordAuthentication = true;
