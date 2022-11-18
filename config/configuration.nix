@@ -11,6 +11,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.cleanTmpDir = true;
 
   boot.kernelPackages = pkgs.pkgs.linuxPackages_5_15;
