@@ -16,10 +16,6 @@
 
   boot.kernelPackages = pkgs.pkgs.linuxPackages_5_15;
 
-  boot.blacklistedKernelModules = [
-    "nouveau"
-  ];
-
   boot.kernel.sysctl."kernel.pid_max" = 1048576;
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
