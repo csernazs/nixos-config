@@ -51,6 +51,7 @@ packages = [
     "vlc",
     "jetbrains.pycharm-community",
     "xorg.xf86inputsynaptics",
+    "xorg.xmodmap",
     "binutils-unwrapped",
     "man-pages",
     "dotnet-sdk",
