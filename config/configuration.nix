@@ -14,18 +14,12 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.cleanTmpDir = true;
 
-  boot.kernelPackages = pkgs.pkgs.linuxPackages_5_15;
-
   boot.kernel.sysctl."kernel.pid_max" = 1048576;
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
   networking.hostName = "skylake"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
-
-  networking.useDHCP = false;
-  networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
 
   console.font = "Lat2-Terminus16";
   console.keyMap = "hu";
@@ -68,23 +62,10 @@
     ];
   };
 
-  services.nginx.enable = true;
-  services.nginx.virtualHosts."localhost" = {
-    addSSL = false;
-    enableACME = false;
-    root = "/var/www/nginx";
-    listen = [
-      { addr = "127.0.0.1"; port = 80; ssl = false; }
-    ];
-    locations."/zsolt/".alias = "/home/zsolt/www/";
-    locations."/zsolt/".index = "index.html";
-  };
 
   services.timesyncd.enable = lib.mkDefault true;
   services.blueman.enable = true;
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brlaser pkgs.brgenml1lpr pkgs.brgenml1cupswrapper ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -119,15 +100,6 @@
     desktopManager.xfce.enable = true;
     autoRepeatDelay = 250;
     autoRepeatInterval = 60;
-    #    multitouch = {
-    #      enable = true;
-    #      invertScroll = false;
-    #      additionalOptions =
-    #      ''
-    #      Option "FingerHigh"  "200"
-    #      Option "FingerLow"   "100"
-    #      '';
-    #    };
   };
 
   programs.zsh.enable = true;
@@ -205,19 +177,4 @@
   # should.
   system.stateVersion = "22.05"; # Did you read the comment?
 
-
-
-  nixpkgs.overlays = [
-    (self: super: {
-      intel-ocl = super.intel-ocl.overrideAttrs
-        (old: {
-          src = pkgs.fetchzip {
-            url = "http://registrationcenter-download.intel.com/akdlm/irc_nas/11396/SRB5.0_linux64.zip";
-            sha256 = "0qbp63l74s0i80ysh9ya8x7r79xkddbbz4378nms9i7a0kprg9p2";
-            stripRoot = false;
-          };
-        });
-    }
-    )
-  ];
 }
