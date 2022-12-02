@@ -88,7 +88,6 @@
 
   services.xserver = {
     enable = true;
-    useGlamor = true;
 
     layout = "hu";
     # xkbOptions = "eurosign:e";
