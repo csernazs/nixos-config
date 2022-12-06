@@ -9,9 +9,24 @@
       ./flakes.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.cleanTmpDir = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.default = "1";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  boot.loader.grub.extraEntries = ''
+    menuentry "Windows 10" {
+      insmod part_gpt
+      insmod fat
+      insmod search_fs_uuid
+      insmod chain
+      search --fs-uuid --set=root 66D5-69F4
+      chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+    }
+  '';
 
   boot.kernelPackages = pkgs.pkgs.linuxPackages_5_15;
 
@@ -22,9 +37,8 @@
   boot.kernel.sysctl."kernel.pid_max" = 1048576;
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
-  networking.hostName = "skylake"; # Define your hostname.
+  networking.hostName = "io"; # Define your hostname.
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
 
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
@@ -39,6 +53,7 @@
 
   nixpkgs.config.pulseaudio = true;
 
+  # managed by tzupdate
   # time.timeZone = "Europe/Budapest";
 
   nixpkgs.config.allowUnfree = true;
@@ -108,12 +123,11 @@
 
   services.xserver = {
     enable = true;
-    useGlamor = true;
 
     layout = "hu";
     # xkbOptions = "eurosign:e";
 
-    videoDrivers = [ "modesetting" ];
+    videoDrivers = [ "nvidia" ];
     # Enable touchpad support.
     libinput.enable = true;
 
@@ -199,15 +213,8 @@
 
   nix = {
     gc.automatic = true;
-    useSandbox = true;
+    settings.sandbox = true;
   };
-
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
-
 
   nixpkgs.overlays = [
     (self: super: {
@@ -222,4 +229,13 @@
     }
     )
   ];
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "22.05"; # Did you read the comment?
+
 }

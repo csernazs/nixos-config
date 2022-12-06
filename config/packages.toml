@@ -88,7 +88,6 @@ packages = [
     "nmon",
     "dpkg",
     "screen",
-    "miniupnpc_2",
     "mcrypt",
     "p7zip",
     "dia",
@@ -141,13 +140,12 @@ packages = [
     "python3Packages.future",
     "python3Packages.pytest",
     "python3Packages.pip",
-    "python3Packages.pyopengl-accelerate",
     "python3Packages.bitarray",
     "jless",
     "sshfs",
     "azure-functions-core-tools",
     "azure-cli",
-    "gh",
+
 ]
 
 [unstable]
@@ -164,11 +162,10 @@ packages = [
     "cargo",
     "restic",
     "kdenlive",
-    "citrix_workspace",
+#    "citrix_workspace",
     "kitty",
     "pypy",
     "pypy3",
     "thefuck",
     "john",
-    "zoom-us",
 ]
