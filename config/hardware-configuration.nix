@@ -9,22 +9,11 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-    "acpi_backlight=vendor"
-    "video.use_native_backlight=1"
-    "intel_pstate=active"
-  ];
 
-  boot.initrd.luks.devices.root =
-    {
-      device = "/dev/disk/by-uuid/18b41806-9aff-4676-8672-919d79aad5a5";
-      preLVM = true;
-      allowDiscards = true;
-    };
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/e5d09232-e68c-4be1-966d-f474d08eab3f";
@@ -45,9 +34,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
 }
