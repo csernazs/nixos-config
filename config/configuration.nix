@@ -40,9 +40,6 @@
   networking.hostName = "io"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  networking.useDHCP = false;
-  networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
 
   console.font = "Lat2-Terminus16";
   console.keyMap = "hu";
