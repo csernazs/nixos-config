@@ -9,6 +9,7 @@
       ./flakes.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.default = "1";
@@ -27,8 +28,6 @@
       chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }
   '';
-
-  boot.kernelPackages = pkgs.pkgs.linuxPackages_5_15;
 
   boot.blacklistedKernelModules = [
     "nouveau"
