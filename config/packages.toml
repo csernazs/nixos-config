@@ -145,7 +145,6 @@ packages = [
     "sshfs",
     "azure-functions-core-tools",
     "azure-cli",
-
 ]
 
 [unstable]
@@ -162,7 +161,7 @@ packages = [
     "cargo",
     "restic",
     "kdenlive",
-#    "citrix_workspace",
+    # "citrix_workspace",
     "kitty",
     "pypy",
     "pypy3",
