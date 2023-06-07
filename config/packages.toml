@@ -147,6 +147,11 @@ packages = [
     "azure-functions-core-tools",
     "azure-cli",
     "gh",
+    "poetry",
+    "mosh",
+    "git-absorb",
+    "pypy",
+    "pypy3"
 ]
 
 [unstable]
@@ -157,7 +162,6 @@ packages = [
     "tesseract4",
     "arduino",
     "castnow",
-    "poetry",
     "rustup",
     "rustc",
     "cargo",
@@ -165,9 +169,6 @@ packages = [
     "kdenlive",
     "citrix_workspace",
     "kitty",
-    "pypy",
-    "pypy3",
-    "thefuck",
-    "john",
     "zoom-us",
+    "ruff"
 ]
