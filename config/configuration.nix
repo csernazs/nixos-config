@@ -11,7 +11,7 @@
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.default = "1";
   boot.loader.grub.efiSupport = true;
@@ -64,23 +64,24 @@
   services.fstrim.enable = true;
   services.lorri.enable = true;
   services.tzupdate.enable = true;
-
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
-    ciphers = [
-      "chacha20-poly1305@openssh.com"
-      "aes256-gcm@openssh.com"
-      "aes128-gcm@openssh.com"
-      "aes256-ctr"
-      "aes192-ctr"
-      "aes128-ctr"
-    ];
-    forwardX11 = true;
-    kexAlgorithms = [
-      "curve25519-sha256@libssh.org"
-      "diffie-hellman-group-exchange-sha256"
-    ];
+    settings = {
+      PasswordAuthentication = true;
+      Ciphers = [
+        "chacha20-poly1305@openssh.com"
+        "aes256-gcm@openssh.com"
+        "aes128-gcm@openssh.com"
+        "aes256-ctr"
+        "aes192-ctr"
+        "aes128-ctr"
+      ];
+      X11Forwarding = true;
+      KexAlgorithms = [
+        "curve25519-sha256@libssh.org"
+        "diffie-hellman-group-exchange-sha256"
+      ];
+    };
   };
 
   services.nginx.enable = true;
