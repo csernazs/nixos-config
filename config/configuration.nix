@@ -37,6 +37,7 @@
   nixpkgs.config.allowUnfree = true;
 
   security.polkit.enable = true;
+  security.polkit.debug = true;
 
   services.acpid.enable = true;
   services.logind.lidSwitch = "suspend";
@@ -98,6 +99,7 @@
 
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = false;
+    displayManager.gdm.debug = true;
     desktopManager.xfce.enable = true;
     autoRepeatDelay = 250;
     autoRepeatInterval = 60;
