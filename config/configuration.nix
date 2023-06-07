@@ -9,12 +9,10 @@
       ./flakes.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   boot.kernel.sysctl."kernel.pid_max" = 1048576;
   boot.kernel.sysctl."kernel.sysrq" = 1;
@@ -47,23 +45,24 @@
   services.fstrim.enable = true;
   services.lorri.enable = true;
   services.tzupdate.enable = true;
-
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
-    ciphers = [
-      "chacha20-poly1305@openssh.com"
-      "aes256-gcm@openssh.com"
-      "aes128-gcm@openssh.com"
-      "aes256-ctr"
-      "aes192-ctr"
-      "aes128-ctr"
-    ];
-    forwardX11 = true;
-    kexAlgorithms = [
-      "curve25519-sha256@libssh.org"
-      "diffie-hellman-group-exchange-sha256"
-    ];
+    settings = {
+      PasswordAuthentication = true;
+      Ciphers = [
+        "chacha20-poly1305@openssh.com"
+        "aes256-gcm@openssh.com"
+        "aes128-gcm@openssh.com"
+        "aes256-ctr"
+        "aes192-ctr"
+        "aes128-ctr"
+      ];
+      X11Forwarding = true;
+      KexAlgorithms = [
+        "curve25519-sha256@libssh.org"
+        "diffie-hellman-group-exchange-sha256"
+      ];
+    };
   };
 
 
