@@ -40,6 +40,7 @@
   security.polkit.debug = true;
 
   services.acpid.enable = true;
+  services.fwupd.enable = true;
   services.logind.lidSwitch = "suspend";
   services.locate.enable = false;
   services.gvfs.enable = true;
