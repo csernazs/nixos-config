@@ -162,10 +162,7 @@ packages = [
     "cargo",
     "restic",
     "kdenlive",
-    # "citrix_workspace",
     "kitty",
     "pypy",
     "pypy3",
-    "thefuck",
-    "john",
 ]
