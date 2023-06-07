@@ -17,4 +17,4 @@ repos:
     rev: d2425a6
     hooks:
     -   id: pretty-format-toml
-        args: [--autofix, --indent, '4']
+        args: [--autofix, --indent, '4', --trailing-commas]
