@@ -145,6 +145,7 @@ packages = [
     "sshfs",
     "azure-functions-core-tools",
     "azure-cli",
+    "home-manager",
 ]
 
 [unstable]

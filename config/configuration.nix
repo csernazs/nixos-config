@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./packages.nix
       ./flakes.nix
+      <home-manager/nixos>
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -206,6 +207,12 @@
     extraGroups = [ "wheel" "networkmanager" "video" "docker" "dialout" "libvirtd" ];
     useDefaultShell = true;
   };
+
+  home-manager.users.zsolt = { pkgs, ... }: {
+    home.packages = [ pkgs.httpie ];
+    home.stateVersion = "22.11";
+  };
+  home-manager.useGlobalPkgs = true;
 
   nix = {
     gc.automatic = true;
