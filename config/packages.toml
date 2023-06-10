@@ -151,7 +151,7 @@ packages = [
     "mosh",
     "git-absorb",
     "pypy",
-    "pypy3"
+    "pypy3",
 ]
 
 [unstable]
@@ -170,5 +170,6 @@ packages = [
     "citrix_workspace",
     "kitty",
     "zoom-us",
-    "ruff"
+    "ruff",
+    "pdm",
 ]
