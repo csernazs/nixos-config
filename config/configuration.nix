@@ -100,7 +100,8 @@
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = false;
     displayManager.gdm.debug = true;
-    desktopManager.xfce.enable = true;
+    desktopManager.cinnamon.enable = true;
+
     autoRepeatDelay = 250;
     autoRepeatInterval = 60;
   };
