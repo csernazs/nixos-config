@@ -26,6 +26,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/data" =
+    {
+      device = "/dev/disk/by-label/DATA";
+    };
+
   swapDevices =
     [{ device = "/dev/disk/by-uuid/39dc60ec-f118-4c6b-887c-288b50c8af24"; }];
 
