@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./packages.nix
       ./flakes.nix
+      <home-manager/nixos>
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -170,9 +171,15 @@
     useDefaultShell = true;
   };
 
+  home-manager.users.zsolt = { pkgs, ... }: {
+    home.stateVersion = "22.05";
+    home.packages = [ ];
+  };
+
   nix = {
     gc.automatic = true;
     settings.sandbox = true;
+    settings.trusted-users = [ "root" "@wheel" ];
   };
 
   # This value determines the NixOS release with which your system is to be
