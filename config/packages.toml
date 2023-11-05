@@ -172,4 +172,8 @@ packages = [
     "zoom-us",
     "ruff",
     "pdm",
+    "wezterm",
+    "zoxide",
+    "diskus",
+    "fzf",
 ]
