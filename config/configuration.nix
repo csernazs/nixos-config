@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let
+  nixos-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   imports =
     [
@@ -34,6 +37,7 @@
   # time.timeZone = "Europe/Budapest";
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (_: true);
 
   security.polkit.enable = true;
   security.polkit.debug = true;
@@ -44,7 +48,7 @@
   services.locate.enable = false;
   services.gvfs.enable = true;
   services.fstrim.enable = true;
-  services.lorri.enable = true;
+  # services.lorri.enable = true;
   services.tzupdate.enable = true;
   services.openssh = {
     enable = true;
@@ -179,6 +183,10 @@
     programs.vscode = {
       enable = true;
       extensions = import ./vscode-extensions.nix;
+    };
+    services.lorri = {
+      enable = true;
+      enableNotifications = true;
     };
   };
 
