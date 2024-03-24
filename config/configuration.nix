@@ -157,6 +157,7 @@
   programs.tmux.enable = true;
   programs.adb.enable = true;
   programs.mtr.enable = true;
+  programs.nix-ld.enable = true;
 
   programs.ssh.startAgent = true;
 
