@@ -17,6 +17,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.tmp.cleanOnBoot = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   boot.kernel.sysctl."kernel.pid_max" = 1048576;
   boot.kernel.sysctl."kernel.sysrq" = 1;
