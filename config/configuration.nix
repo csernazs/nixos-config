@@ -129,7 +129,7 @@ in
     fontDir.enable = true;
     # enableFontDir = true;
     fontconfig.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       source-code-pro
       noto-fonts
