@@ -98,7 +98,7 @@ in
     layout = "hu";
     # xkbOptions = "eurosign:e";
 
-    videoDrivers = [ "modesetting" ];
+    videoDrivers = [ "amdgpu" ];
     # Enable touchpad support.
     libinput.enable = true;
 
