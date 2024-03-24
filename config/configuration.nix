@@ -48,7 +48,14 @@
     defaultLocale = "en_IE.UTF-8";
   };
 
-  nixpkgs.config.pulseaudio = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
 
   # managed by tzupdate
   # time.timeZone = "Europe/Budapest";
@@ -117,7 +124,7 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
 
   services.xserver = {
     enable = true;
@@ -199,6 +206,7 @@
     session required pam_env.so envfile=/etc/pam/environment
     session required pam_unix.so
   '';
+  security.rtkit.enable = true;
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
