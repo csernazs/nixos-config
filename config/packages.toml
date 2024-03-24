@@ -165,4 +165,5 @@ packages = [
     "kitty",
     "pypy",
     "pypy3",
+    "rawtherapee",
 ]
