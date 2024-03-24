@@ -6,7 +6,6 @@ packages = [
     "mc",
     "lightdm",
     "parted",
-    "firefox",
     "pciutils",
     "networkmanagerapplet",
     "findutils",
@@ -152,11 +151,13 @@ packages = [
     "git-absorb",
     "pypy",
     "pypy3",
+    "firefox",
+    "just",
+    "multipath-tools",
 ]
 
 [unstable]
 packages = [
-    "vscode",
     "inkscape",
     "geeqie",
     "tesseract4",
@@ -176,4 +177,7 @@ packages = [
     "zoxide",
     "diskus",
     "fzf",
+    "cachix",
+    "vscode",
+    "nixos-generators",
 ]
