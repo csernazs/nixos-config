@@ -171,9 +171,15 @@
     useDefaultShell = true;
   };
 
+  home-manager.useGlobalPkgs = true;
+
   home-manager.users.zsolt = { pkgs, ... }: {
     home.stateVersion = "22.05";
     home.packages = [ ];
+    programs.vscode = {
+      enable = true;
+      extensions = import ./vscode-extensions.nix;
+    };
   };
 
   nix = {
